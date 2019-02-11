@@ -26,7 +26,7 @@ public class StringUtilities {
         for (int i=(valueToBeReversed.length()-1);i>=0;i--) {
             retVal=retVal+valueToBeReversed.charAt(i);
         }
-        return null;
+        return retVal;
     }
 
     /**
@@ -34,7 +34,16 @@ public class StringUtilities {
      * @return middle character of `word`
      */
     public Character getMiddleCharacter(String word) {
-        return null;
+        int len=word.length(); // get string length
+        
+        if(len%2 == 0) // check for evens
+        {
+            len--; // force to pick the first middle (change to odd)
+        }
+        
+        len = len/2; // get middle number
+        
+        return word.charAt(len);
     }
 
     /**
@@ -43,7 +52,18 @@ public class StringUtilities {
      * @return `value` with char of value `charToRemove` removed
      */
     public String removeCharacter(String value, Character charToRemove) {
-        return null;
+        int len=value.length(); // get string length
+        String retVal="";
+        
+        for(int i=0;i<len;i++) // loop through string
+        {  
+            if(value.charAt(i) != charToRemove)
+            {
+                retVal = retVal+value.charAt(i);
+            }
+        }
+        
+        return retVal;
     }
 
     /**
@@ -51,6 +71,22 @@ public class StringUtilities {
      * @return last `word` in sentence
      */
     public String getLastWord(String sentence) {
-        return null;
+        String retVal = "";
+        int len=sentence.length();
+        int spaceIndex;
+        
+        // reverse the string
+        String reverseString = reverse(sentence);
+        
+        // Get first space index
+        spaceIndex = reverseString.indexOf(" ");
+        
+        // set retVal = 0 to space index
+        retVal = reverseString.substring(0, spaceIndex);
+        // reverse it back
+        retVal = reverse(retVal);
+        
+        
+        return retVal;
     }
 }
