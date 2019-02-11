@@ -57,6 +57,27 @@ public class LoopFun
        * @return the encrypted string by shifting each character by three character
        */
       public String encrypt(String word) {
-          return null;
+          String retVal="";
+          int len =word.length();
+          char tempChar;
+          char three1 = '>';
+           
+          // loop through each char in word
+          for(int i=0; i<len;i++) {
+              
+              tempChar = word.charAt(i);
+              // start at a-3 
+          
+              // force to int to get ascii and back to char
+              // also - Mods and resets to 'a' for over lower z
+              tempChar = (char)((tempChar +3 -(int)'a')%26 + (int)'a');
+              
+              // concate and convert back to string
+              retVal = retVal + Character.toString(tempChar);
+              
+            }
+            
+          
+          return retVal;
       }
 }
